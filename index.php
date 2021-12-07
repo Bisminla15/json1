@@ -11,26 +11,42 @@
 <body>
     <button id="btnJSON1"> JSON 1</button>
     Name : <span id="fname"></span> <br/>
-    Sname : <span id="lname"></span>
+    Sname : <span id="lname"></span> 
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th><th>First Name</th><th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody id="tblStudent">
+        </tbody>
+    </table>
 </body>
 <script>
-    function loadJSON(){
+    function loadJSOn(){
         var url = "https://cj-android-demon.herokuapp.com/json2.php";
         
         $.getJSON(url)
             .done((data)=>{
-                console.log(data);
-                console.log(data[1]);
-                console.log(data[2].fname);
-              //  $("#fname").text(data.fname);
+                console.log(data)
+                $.each(data, (k, item)=>{
+                    console.log(k);
+                    console.log(item);
+                    var line = "<tr>";
+                        line += "<td>" + (k+1) + "</td>"
+                        line += "<td>" + item.fname + "</td>"
+                        line += "<td>" + item.lname + "</td>"
+                        line += "</tr>";
+                    $("#tdlData").append(line);
+                });
             })
             .fail((xhr, status, err)=>{
 
             });
     }
-    
+
     $(()=>{
-        $("#btnJSON1").click(loadJSON);
+        loadJSON();
     });
 </script>
-</html>
