@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
 </head>
 <body>
 <button id="btnBack"> back </button>
@@ -23,13 +25,23 @@
 <div id="detail">
     sssssss
 </div>
-    
 </body>
 <script>
     function showDetails(id){
         $("#main").hide();
         $("#detail").show();
         var url = "https://jsonplaceholder.typicode.com/posts/"+id;
+        $.getJSON(url)
+            .done((data)=>{
+                console.log(data);
+            })
+            .fail((xhr, status, error)=>{
+            })
+    }
+    function showComment(){
+        $("#main").show();
+        $("#comment").hide();
+        var url = "https://jsonplaceholder.typicode.com/posts/1/comments";
         $.getJSON(url)
             .done((data)=>{
                 console.log(data);
@@ -55,6 +67,7 @@
                     $("#tblPosts").append(line);
                 });
                 $("#main").show();
+                $("#comment").show();
             })
             .fail((xhr, status, error)=>{
             })
