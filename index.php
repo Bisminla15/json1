@@ -24,7 +24,7 @@
     </table>
 </body>
 <script>
-    function loadJSOn(){
+    function loadJSON(){
         var url = "https://cj-android-demon.herokuapp.com/json2.php";
         
         $.getJSON(url)
