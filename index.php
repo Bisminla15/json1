@@ -14,7 +14,7 @@
     Sname : <span id="lname"></span>
 </body>
 <script>
-    function loadJSOn(){
+    function loadJSON(){
         var url = "https://cj-android-demon.herokuapp.com/json1.php";
         
         $.getJSON(url)
