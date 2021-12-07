@@ -23,25 +23,21 @@
     </table>
 </div>
 <div id="detail">
-    sssssss
+    {
+        <br>  "postId": 1,</br>
+        <br>  "id": 1,</br>
+        <br>  "name": "id labore ex et quam laborum",</br>
+        <br> "email": "Eliseo@gardner.biz",</br>
+        <br> "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"</br>
+    }
 </div>
+    
 </body>
 <script>
     function showDetails(id){
         $("#main").hide();
         $("#detail").show();
         var url = "https://jsonplaceholder.typicode.com/posts/"+id;
-        $.getJSON(url)
-            .done((data)=>{
-                console.log(data);
-            })
-            .fail((xhr, status, error)=>{
-            })
-    }
-    function showComment(){
-        $("#main").show();
-        $("#comment").hide();
-        var url = "https://jsonplaceholder.typicode.com/posts/1/comments";
         $.getJSON(url)
             .done((data)=>{
                 console.log(data);
@@ -67,7 +63,6 @@
                     $("#tblPosts").append(line);
                 });
                 $("#main").show();
-                $("#comment").show();
             })
             .fail((xhr, status, error)=>{
             })
