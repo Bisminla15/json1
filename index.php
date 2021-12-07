@@ -30,7 +30,7 @@
     function showDetails(id){
         $("#main").hide();
         $("#detail").show();
-        var url = "https://jsonplaceholder.typicode.com/posts"+id;
+        var url = "https://jsonplaceholder.typicode.com/posts/"+id;
         $.getJSON(url)
             .done((data)=>{
                 console.log(data);
@@ -41,7 +41,7 @@
     }
     function loadPost(){
         $("#main").show();
-        $("#details").hide;
+        $("#details").hide();
         var url = "https://jsonplaceholder.typicode.com/posts";
         $.getJSON(url)
             .done((data)=>{
@@ -61,6 +61,7 @@
 
             })
     }
+    
     $(()=>{
         loadPost();
         $("#btnBack").click(()=>{
